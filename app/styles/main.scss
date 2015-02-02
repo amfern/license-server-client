@@ -1,90 +1,630 @@
 // bower:scss
 // endbower
 
-.browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
+
+$gray-color: #F8F8F8;
+$gray-color2: #D2D2D2;
+$dark-gray-color: #C6C6C6;
+$light-gray-color: #606079;
+$black-color: #4A4A4A;
+$white-color: #fff;
+$orange-color: #FF6600;
+$black-gray-color: #A1A1A1;
+$dark-green-color: #7ED321;
+$green-color: #50E3C2;
+
+html, body {
+  height: 100%;
 }
 
-/* Space out content a bit */
+html {
+  overflow: auto;
+  background-color: #000;
+}
+
 body {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  color: #4A4A4A;
+  margin: 0;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
+inner-body {
+  display: block;
+  position: relative;
+  height: 100%;
+  overflow-y: scroll;
+
+  &.gray-background {
+    background-color: $gray-color;
+  }
 }
 
-/* Custom page header */
+header {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: 13px 192px;
+  z-index: 1;
+
+  &.dark-header {
+    font-size: 11px;
+    background-color: $black-color;
+    box-shadow: 0px -10px 10px 10px;
+  }
+
+  &.gray-header {
+    background-color: $gray-color; 
+    text-align: center;
+
+    .logo {
+      float: left;
+      margin-right: -100%;
+    }
+
+    .header {
+      margin-left: 0;
+    }
+  }
+}
+
+main {
+  min-height: 100vh;
+  // width: 1053px;
+  width: 92vw; //82.3%;
+  margin: 0 auto;
+  background-color: #fff;
+
+  &.wraped {
+    padding: 60px 25px;
+    background-color: $white-color;
+    border: 1px solid $dark-gray-color;
+  }
+
+  &.single-wrapped {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+  }
+
+
+  @media only screen and  (min-width: 1024px) {
+    width: 82.3vw;
+  }
+
+  @media only screen and  (min-width: 1340px) {
+    width: 72.3%;
+  }
+
+  @media only screen and  (min-width: 1540px) {
+    width: 62.3%;
+  }
+
+  @media only screen and  (min-width: 1940px) {
+    width: 42.3%;
+  }
+
+  // @media only screen and  (min-width: 1640px) {
+  //   width: 82.3%;
+  // }
+
+  .persona-form {
+    margin-top: 5vh;
+  }
+
+  .login-form {
+    width: 350px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+header .navbar > li {
+  color: #fff;
+  font-weight: bold;
+}
+
+ul.navbar > li {
+  display: inline;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  &.brand {
+    margin-right: 36px;
+  }
+
+  &.navbar-right {
+    float: right;
+  }
+}
+
+.text-sm {
+  font-size: 10px;
+}
+
+.caret-placeholder {
+  display: inline;
+  color: #9B9B9B;
+  font-size: 8px;
+  margin-left: 5px;
+}
+
+
+ul.personas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+}
+
+ul.personas  > li,
+.persona {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  // display: inline-block;
+  background-color: $gray-color;
+  // width: 250px; /* 360px */
+  width: 30.8%;
+  max-width: 315px;
+  border: 2px solid $gray-color2;
+  padding: 17px;
+
+  .persona-image { }
+
+  .persona-header {
+    margin-top: 0.5vmax;
+    margin-bottom: 1vmax;
+    font-weight: bold;
+    font-size: 24px;
+    text-transform: capitalize;
+  }
+
+  &:nth-child(n+4) {
+    margin-top: 2vmax;
+  }
+
+  .buy-button {
+    font-size: 1vw;
+    margin-top: 2vmax;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  .dark-green-button {
+    display: none;
+
+    img.checkmark {
+      margin: -14px 0; 
+      float: left;
+      background: radial-gradient(ellipse at center, #ffffff 0%,#FFFFFF 68%,rgba(207, 4, 4, 0) 68%);
+    }
+  }
+
+  .active-checkmark {
+    position: absolute;
+    right: 25px;
+    top: 25px;
+
+    display: none;
+  }
+
+  .action-button {
+    position: absolute;
+    right: 17px;
+    display: none;
+    margin-top: 1px;
+  }
+
+  .action-button-line {
+    margin-top: 4px;
+    text-align: right;
+    visibility: hidden;
+  }
+
+  &.active {
+    .active-checkmark {
+      display: block;
+    }
+    .buy-button {
+      display: none;
+    }
+
+    .dark-green-button {
+      display: block;
+    }
+
+    .action-button {
+      display: block;
+    }
+
+    .action-button-line {
+      visibility: visible;
+    }
+  }
+}
+
+
+.buy-button {
+  color: #000;
+  background-color: $orange-color;
+  border-radius: 2px;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 19px 15px;
+  text-decoration: none;
+
+  &:hover {
+    color: #000;
+    background-color: darken($orange-color, 3%);
+  }
+  
+  &.buy-button-lg {
+    padding: 15px 25px;
+  }
+
+  &.green-button {
+    &, &:hover {
+      color: $light-gray-color;
+      background-color: $green-color;
+      padding: 10px 30px;
+    }
+  }
+
+  &.dark-green-button {
+    background-color: $dark-green-color;
+  }
+
+  &.transperant {
+    &, &:hover {
+      background-color: transparent;
+    }
+  }
+
+  small {
+    color: $light-gray-color;
+  }
+}
+
+.gray-button {
+  padding: 8px 20px;
+
+
+  background: #d6d6d6; /* Old browsers */
+  background: -moz-linear-gradient(top,  #d6d6d6 0%, #b4b4b4 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d6d6d6), color-stop(100%,#b4b4b4)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #d6d6d6 0%,#b4b4b4 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #d6d6d6 0%,#b4b4b4 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #d6d6d6 0%,#b4b4b4 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #d6d6d6 0%,#b4b4b4 100%); /* W3C */
+
+  &:focus, &:active {
+    outline: none;
+  }
+
+  &, &:hover {
+    border: 0;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #A6A6A6;
+    border-radius: 5px;
+    box-shadow: 0px 0px 0px 1px #979797;
+    color: #4A4A4A;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  &.gray-button-lg {
+    padding: 8px 55px;
+  }
+}
+
+
+
+.logo {
+  font-size: 18px;
+  font-weight: bold;
+
+  &, img {
+    vertical-align: middle;
+    display: inline-block;
+  }
+
+  img {
+    margin-right: 12px;
+  }
+}
+
 .header {
-  border-bottom: 1px solid #e5e5e5;
+  vertical-align: middle;
+  display: inline;
+  font-size: 39px;
+}
 
-  /* Make the masthead heading the same height as the navigation */
-  h3 {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 40px;
-    padding-bottom: 19px;
+.logo + .header {
+  margin-left: 22px;
+}
+
+.persona-form {
+  display: flex;
+
+  .persona {
+    padding-bottom: 14vmax;
+    position: relative;
+    z-index: 2;
+    box-shadow: 6px 0px 6px -3px $gray-color2;
+    min-height: 500px;
+    justify-content: flex-start;
+  }
+
+  .form-container {
+    margin: 20px 0;
+    background-color: $gray-color;
+    flex-grow: 1;
+
+    .image {
+      margin-left: auto;
+    }
+
+    .form {
+      margin: 0 auto;
+      
+      .inner-form {
+        color: $light-gray-color;
+        padding: 10px;
+        padding-bottom: 80px;
+        position: relative;
+        background-color: $white-color;
+      }
+    }
+
+    .image + .form {
+      margin-left: 10px;
+    }
   }
 }
 
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
-}
 
-.container-narrow > hr {
-  margin: 30px 0;
-}
+.form-container {
+  position: relative;
+  padding: 1vmax;
+  display: flex;
 
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
+  .close {
+    right: 0;
+    top: 0;
+    position: absolute;
+    color: #BEBEBE;
+    font-size: 48px;
+    font-weight: bold;
+    line-height: 50%;
+    margin: 10px;
 
-  .btn {
-    font-size: 21px;
-    padding: 14px 24px;
+    &,&:hover {
+      text-decoration: none;
+    }
   }
 }
 
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
+.form {
+  &.horizontal-form {
+    .label,
+    .control {
+      float: left;
+    }
 
-  p + h4 {
-    margin-top: 28px;
+    .control {
+      padding: 0 35px;
+      position: relative;
+      width: 83.33333333%;
+    }
+
+    .label {
+      text-align: right;
+      width: 16.66666667%;
+    }
+  }
+
+  .label {
+    display: inline-block;
+    max-width: 100%;
+    font-weight: bold;
+    padding-top: 6px;
+    white-space: nowrap;
+  }
+
+
+  .form-control {
+    display: block;
+    width: 100%;
+    border-radius: 3px;
+    border: 1px solid #979797;
+    padding: 6px;
+  }
+
+  .form-group {
+    &:before,
+    &:after {
+      clear: both;
+      content: ' ';
+      display: table;
+    }
+
+    &+.form-group{
+      padding-top: 20px;
+    }
+  }
+
+  .help-block {
+    margin-top: 10px;
+    color: #606060;
+  }
+
+  .submit-group {
+    position: absolute;
+    bottom: 25px;
+    right: 0;
   }
 }
 
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px;
+.radio {
+  &.offset {
+    padding-left: 25px;
   }
 
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
+  input[type=radio] {
+    margin-right: 10px;
+    vertical-align: top;
   }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
+
+  label {
+    font-weight: bold;
   }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
+
+  &+.radio {
+    padding-top: 20px;
   }
 }
+
+.pull-right {
+  float: right;
+}
+
+.pull-left {
+  float: left;
+}
+
+.title {
+  text-transform: capitalize;
+  font-size: 30px;
+  font-weight: bold;
+  padding: 25px 0px;
+}
+
+.wrap {
+  border: 1px solid #979797;
+}
+
+.title-text {
+  line-height: 150%;
+}
+
+.inner-form-image {
+  float: left;
+  margin: 15px;
+  margin-left: 10px;
+}
+
+.action-button-line {
+  color: #979797;
+  text-decoration: none;
+  font-weight: bold;
+
+  &:hover {
+    color: darken(#979797, 10%);
+  }
+
+  img {
+    margin-left: 10px;
+    display: inline-block;
+    vertical-align: bottom;
+  }
+}
+
+.action-button {
+  color: $orange-color;
+  text-decoration: none;
+  
+  &:hover {
+    color: darken($orange-color, 10%);
+  }
+}
+
+
+
+.login-form {
+  background-color: $gray-color;
+  border: 2px solid $gray-color2;
+
+  .login-form-header {
+    color: #000;
+    background-color: $gray-color2;
+    padding: 0 10px;
+    padding-bottom: 2px;
+    font-size: 20px;
+  }
+
+  .login-form-body {
+    color: #000;
+    padding: 12px 20px;
+  }
+
+}
+
+.login-form-container {
+  position: relative;
+
+  .card-deck-placeholder {
+    position: absolute;
+top: -150px;
+right: -195px;
+  }
+
+  .login-form {
+    position: relative;
+  }
+}
+
+
+
+/* modal
+---------------------------------- */
+.cellrox-modal {
+  display: none;
+
+  .persona-image {
+    float: left;
+    margin-right: 15px;
+  }
+
+  .title {
+    padding-top: 0;
+  }
+
+  .close {
+    margin: 0;
+  }
+}
+
+.avgrund-popin {
+  background-color: $gray-color;
+}
+
+.avgrund-popin {
+  .cellrox-modal {
+    display: block;
+  }
+}
+
+// body.avgrund-active {
+//   -webkit-transform: scale(1);
+//   -moz-transform: scale(1);
+//   -ms-transform: scale(1);
+//   -o-transform: scale(1);
+//   transform: scale(1);
+// }

@@ -1,0 +1,30 @@
+<a href="/persona_index.html" class="close">&times</a>
+<form class="form horizontal-form">
+  <div class="title">Details</div>
+  <div class="form-group">
+    <label for="phone" class="label">Phone</label>
+    <div class="control">
+      <input id="phone" type="text" onClick="this.select();" placeholder="__-___-___" class="form-control"/>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="email" class="label">E-mail</label>
+    <div class="control">
+      <input id="email" type="email" onClick="this.select();" class="form-control"/>
+      <div class="help-block">We'll send your activation code to this email</div>
+    </div>
+  </div>
+  <div class="title">Payment</div>
+  <div class="radio offset">
+    <label>
+      <input id="account-billing" type="radio" name="billing" value="account" checked="" onclick="alert(' + featureMissingMsg + ')"/>Bill my account
+    </label>
+  </div>
+  <div class="radio offset">
+    <label>
+      <input id="card-billing" type="radio" name="billing" value="card" onclick="alert(' + featureMissingMsg + ')"/>Credit card
+    </label>
+  </div>
+  <div class="help-block">You will be billed only when you activate your persona on the device</div>
+  <div class="submit-group"><a href="javascript: activatePersona(' + personaId + ', $('#email').val())" class="buy-button buy-button-lg">Purchase</a><span class="buy-button transperant">$3.99<small>&nbsp;/month</small></span></div>
+</form>
