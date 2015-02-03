@@ -26,5 +26,11 @@
     </label>
   </div>
   <div class="help-block">You will be billed only when you activate your persona on the device</div>
-  <div class="submit-group"><a href="javascript: activatePersona(' + personaId + ', $('#email').val())" class="buy-button buy-button-lg">Purchase</a><span class="buy-button transperant">$3.99<small>&nbsp;/month</small></span></div>
+  <div class="submit-group">
+    <a ng-click="purchase()" href class="buy-button buy-button-lg">Purchase</a>
+    <span class="buy-button transperant">
+      $3.99
+      <small>&nbsp;/month</small>
+    </span>
+  </div>
 </form>

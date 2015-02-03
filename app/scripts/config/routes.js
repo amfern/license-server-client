@@ -43,13 +43,13 @@ angular
             })
             .state('root.authorized.personaIndex', {
                 templateUrl: '/views/personas/index.html',
-                controller: 'PersonasCtrl',
+                controller: 'PersonaIndexCtrl',
                 url: '^/personas'
             })
             .state('root.authorized.personaShow', {
                 abstract: true,
                 templateUrl: '/views/personas/show.html',
-                controller: 'PersonasCtrl',
+                controller: 'PersonaCtrl',
                 url: '^/personas/:id'
             })
             .state('root.authorized.personaShow.activateForm', {
