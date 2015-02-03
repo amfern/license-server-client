@@ -12,6 +12,24 @@ angular
     .module('personaMarketApp')
     .config(function($authProvider) {
         $authProvider.configure({
-            apiUrl: '/api/v1/users'
+            apiUrl: '/api/v1/users',
+            tokenValidationPath:     '/validate_token',
+            signOutUrl:              '/sign_out',
+            emailRegistrationPath:   '',
+            accountUpdatePath:       '',
+            accountDeletePath:       '',
+            confirmationSuccessUrl:  window.location.href,
+            passwordResetPath:       '/password',
+            passwordUpdatePath:      '/password',
+            passwordResetSuccessUrl: window.location.href,
+            emailSignInPath:         '/sign_in',
+            storage:                 'cookies',
+            proxyIf:                 function() { return false; },
+            proxyUrl:                '/proxy',
+            authProviderPaths: {
+                github:   '/github',
+                facebook: '/facebook',
+                google:   '/google'
+            },
         });
     });

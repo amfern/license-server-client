@@ -2,8 +2,8 @@
   <header class="dark-header">
     <ul class="navbar">
       <li class="navbar-right">
-        Welcome &nbsp;
-        <span id="loginEmail"></span>
+        Welcome &nbsp; {{currentUser.email}}
+        <a href="" ng-click="signOut()">Sign out</a>
       </li>
     </ul>
   </header>

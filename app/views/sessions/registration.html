@@ -3,29 +3,36 @@
     <img src="/images/card_deck.png"/>
   </div>
   <form class="form login-form">
-    <div class="login-form-header">Log in</div>
+    <div class="login-form-header">Sign up</div>
     <div class="login-form-body">
       <div class="form-group">
         <label for="email" class="label">Email</label>
         <div class="control">
-          <input id="login-email" type="email" ng-model="email" class="form-control"/>
+          <input id="login-email" type="email" ng-model="userForm.email" class="form-control"/>
         </div>
       </div>
       <div class="form-group">
         <label for="password" class="label">Password</label>
         <div class="control">
-          <input id="register-password" type="password" ng-model="password" class="form-control"/>
+          <input id="register-password" type="password" ng-model="userForm.password" class="form-control"/>
         </div>
       </div>
       <div class="form-group">
-        <label for="password" class="label">Password Confirmation</label>
+        <label for="register-password-confirmation" class="label">Password Confirmation</label>
         <div class="control">
-          <input id="register-password" type="password" ng-model="passwordConfirmation" class="form-control"/>
+          <input id="register-password-confirmation" type="password" ng-model="userForm.passwordConfirmation" class="form-control"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="register-phone" class="label">Phone</label>
+        <div class="control">
+          <input id="register-phone" type="phone" ng-model="userForm.phone" class="form-control"/>
         </div>
       </div>
       <div class="form-group">
         <br/>
-        <input type="submit" ng-click="submitRegistration(email, password, passwordConfirmation)" value="Log in" class="gray-button gray-button-lg"/>
+        <input type="submit" ng-click="submitSignUp(email, password, passwordConfirmation)" value="Log in" class="gray-button gray-button-lg"/>
+        <a ui-sref="root.unauthorized.sessionNew">Sign in</a>
       </div>
     </div>
   </form>

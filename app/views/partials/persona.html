@@ -1,6 +1,6 @@
 <img src="images/checkmark.png" class="active-checkmark"/>
 <div ng-include="'/views/partials/persona_base.html'"></div>
-<a href="/{{personaId}}_activate_form.html" class="buy-button">Activate for $3.99 / month</a>
+<a ui-sref="root.authorized.personaShow.activateForm({id: personaId})" class="buy-button">Activate for $3.99 / month</a>
 <a class="buy-button dark-green-button">
   <img src="images/checkmark.png" class="checkmark"/>
   Activated

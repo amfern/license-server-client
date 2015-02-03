@@ -8,29 +8,27 @@
  * Controller of the personaMarketApp
  */
 angular.module('personaMarketApp')
-    .controller('SessionsCtrl', function($scope, $auth, $location) {
+    .controller('SessionsCtrl', function($scope, $auth, $state) {
+        $scope.userForm = {};
 
-        $scope.submitLogin = function(email, password) {
+        $scope.submitSignIn = function(email, password) {
             $auth.submitLogin({ email: email, password: password })
                 .then(function() {
-                    $location.url('/personas');
+                    $state.go('root.authorized.personaIndex');
                 })
                 .catch(function(resp) {
                     $scope.errors = resp;
                 });
         };
 
-        $scope.submitRegistration = function(email, password, passwordConfirmation) {
-            $auth.submitLogin({ 
-                    email: email, 
-                    password: password, 
-                    passwordConfirmation: passwordConfirmation
-                })
-                .then(function() {
-                    $location.url('/personas');
+        $scope.submitSignUp = function() {
+            $auth.submitRegistration($scope.userForm)
+                .then(function(resp) {
+                    $auth.user = resp.data.data;
+                    $state.go('root.authorized.personaIndex');
                 })
                 .catch(function(resp) {
-                    $scope.errors = resp;
+                    $scope.errors = resp.errors;
                 });
         };
     });
