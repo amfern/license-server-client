@@ -44,7 +44,12 @@ angular
             .state('root.authorized.personaIndex', {
                 templateUrl: '/views/personas/index.html',
                 controller: 'PersonaIndexCtrl',
-                url: '^/personas'
+                url: '^/personas',
+                resolve: {
+                    licenses: function($http) {
+                        return $http.get('/api/v1/users/user/licenses');
+                    }
+                }
             })
             .state('root.authorized.personaShow', {
                 abstract: true,

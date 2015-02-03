@@ -8,7 +8,7 @@
  * Controller of the personaMarketApp
  */
 angular.module('personaMarketApp')
-    .controller('MainCtrl', function($scope, $auth, $state) {
+    .controller('MainCtrl', function($scope, $auth, $state, $http) {
         $scope.personas = {
             work: {
                 name: 'Work',
@@ -38,6 +38,14 @@ angular.module('personaMarketApp')
             $auth.signOut()
                 .then(function() {
                     $state.go('root.unauthorized.sessionNew');
+                });
+        };
+
+        $scope.addLine = function(persona) {
+            /*jshint camelcase: false */
+            $http.put('/api/v1/users/user/licenses/' + persona.id, {license: { add_line: true }})
+                .then(function(resp) {
+                    angular.extend(persona, resp.data.license);
                 });
         };
     });
