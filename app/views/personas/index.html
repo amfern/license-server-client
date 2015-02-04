@@ -1,8 +1,9 @@
 <ul id="personas" class="personas">
-  <li ng-repeat="(personaId, persona) in personas" ng-class="{active: userPersonas[personaId]}">
+  <li ng-repeat="(personaId, persona) in personas" ng-class="{ active: userPersonas[personaId]['is_binded'], pending: userPersonas[personaId]['is_binded'] == false }">
       <img src="images/checkmark.png" class="active-checkmark"/>
       <div ng-include="'/views/partials/persona_base.html'"></div>
       <a ui-sref="root.authorized.personaShow.activateForm({id: personaId})" class="buy-button">Activate for $3.99 / month</a>
+      <a class="buy-button pending-button">Pending...</a>
       <a class="buy-button dark-green-button">
         <img src="images/checkmark.png" class="checkmark"/>
         Activated

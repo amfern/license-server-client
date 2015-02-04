@@ -207,6 +207,10 @@ ul.personas  > li,
     overflow: hidden;
   }
 
+  .pending-button {
+    display: none;
+  }
+
   .dark-green-button {
     display: none;
 
@@ -238,10 +242,25 @@ ul.personas  > li,
     visibility: hidden;
   }
 
+  &.pending {
+    .buy-button {
+      display: none;
+    }
+
+    .pending-button {
+      display: block;
+    }
+
+    .action-button-line {
+      visibility: visible;
+    }
+  }
+
   &.active {
     .active-checkmark {
       display: block;
     }
+
     .buy-button {
       display: none;
     }
@@ -289,6 +308,10 @@ ul.personas  > li,
 
   &.dark-green-button {
     background-color: $dark-green-color;
+  }
+
+  &.pending-button {
+    background-color: $orange-color;
   }
 
   &.transperant {
