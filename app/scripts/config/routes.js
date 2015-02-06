@@ -21,22 +21,17 @@ angular
         $stateProvider
             .state('root', {
                 abstract: true,
-                template: '<ui-view/>',
-                resolve: {
-                    authPromise: function($auth) {
-                        return { promise: $auth.validateUser() };
-                    }
-                }
+                template: '<ui-view/>'
             })
             .state('root.authorized', {
                 abstract: true,
                 templateUrl: '/views/partials/authorized.html',
                 controller: 'MainCtrl',
                 resolve: {
-                    authAuthorized: function(authPromise, $location) {
-                        authPromise.promise
+                    authorization: function($auth, $state) {
+                        return $auth.validateUser()
                             .catch(function() {
-                                $location.url('/sign_in');
+                                $state.go('root.unauthorized.sessionNew');
                             });
                     }
                 }
@@ -69,22 +64,35 @@ angular
                 abstract: true,
                 templateUrl: '/views/partials/unauthorized.html',
                 resolve: {
-                    authUnauthorized: function(authPromise, $location) {
-                        authPromise.promise
+                    authorization: function($auth, $state, $q) {
+                        var deferred = $q.defer();
+
+                        $auth.validateUser()
                             .then(function() {
-                                $location.url('/personas');
+                                $state.go('root.authorized.personaIndex');
+                                deferred.reject();
+                            })
+                            .catch(function() {
+                                deferred.resolve();
                             });
+
+                        return deferred.promise;
                     }
                 }
             })
             .state('root.unauthorized.sessionNew', {
-                templateUrl: '/views/sessions/new.html',
-                controller: 'SessionsCtrl',
+                templateUrl: '/views/sessions/sign_in.html',
+                controller: 'SignInCtrl',
                 url: '^/sign_in'
             })
             .state('root.unauthorized.sessionRegistration', {
-                templateUrl: '/views/sessions/registration.html',
-                controller: 'SessionsCtrl',
-                url: '^/sign_up'
+                templateUrl: '/views/sessions/sign_up.html',
+                controller: 'SignUpCtrl',
+                url: '^/sign_up',
+                resolve: {
+                    phones: function($http) {
+                        return $http.get('/api/v1/phones');
+                    }
+                }
             });
     });

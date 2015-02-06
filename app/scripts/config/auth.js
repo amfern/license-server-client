@@ -23,13 +23,6 @@ angular
             passwordUpdatePath:      '/password',
             passwordResetSuccessUrl: window.location.href,
             emailSignInPath:         '/sign_in',
-            storage:                 'cookies',
-            proxyIf:                 function() { return false; },
-            proxyUrl:                '/proxy',
-            authProviderPaths: {
-                github:   '/github',
-                facebook: '/facebook',
-                google:   '/google'
-            },
+            storage:                 'cookies'
         });
     });

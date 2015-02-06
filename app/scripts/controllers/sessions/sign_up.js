@@ -8,20 +8,14 @@
  * Controller of the personaMarketApp
  */
 angular.module('personaMarketApp')
-    .controller('SessionsCtrl', function($scope, $auth, $state) {
-        $scope.userForm = {};
+    .controller('SignUpCtrl', function($scope, $auth, $state, phones) {
 
-        $scope.submitSignIn = function(email, password) {
-            $auth.submitLogin({ email: email, password: password })
-                .then(function() {
-                    $state.go('root.authorized.personaIndex');
-                })
-                .catch(function(resp) {
-                    $scope.errors = resp;
-                });
+        $scope.phones = phones.data.phones;
+        $scope.userForm = {
+            phone: $scope.phones[0].real
         };
 
-        $scope.submitSignUp = function() {
+        $scope.submit = function() {
             $auth.submitRegistration($scope.userForm)
                 .then(function(resp) {
                     $auth.user = resp.data.data;
