@@ -208,6 +208,10 @@ ul.personas  > li,
     overflow: hidden;
   }
 
+  .buy-button-mid {
+    font-size: 0.7vw;
+  }
+
   .pending-button {
     display: none;
   }
@@ -308,6 +312,10 @@ ul.personas  > li,
   
   &.buy-button-lg {
     padding: 15px 25px;
+  }
+
+  &.buy-button-mid {
+    font-size: 0.7vw;
   }
 
   &.green-button {
@@ -419,7 +427,8 @@ ul.personas  > li,
 
     .form {
       margin: 0 auto;
-      
+      min-width: 30vw;
+
       .inner-form {
         color: $light-gray-color;
         padding: 10px;
@@ -514,7 +523,7 @@ ul.personas  > li,
   .submit-group {
     position: absolute;
     bottom: 25px;
-    right: 0;
+    right: 15px;
   }
 }
 
@@ -546,8 +555,8 @@ ul.personas  > li,
 }
 
 .title {
-  text-transform: capitalize;
-  font-size: 30px;
+  // text-transform: capitalize;
+  font-size: 24px;
   font-weight: bold;
   padding: 25px 0px;
 }

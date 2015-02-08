@@ -1,0 +1,20 @@
+<form class="form horizontal-form">
+  <div class="title">
+    Select a phone line
+  </div>
+  Which phone number would you like to add a virtual phone line?
+  <div class="form-group">
+    <label for="register-phone" class="label">Phone</label>
+    <div class="control">
+      <select ng-options="phone.real as phone.real for phone in phones" ng-model="phone" class="form-control">
+      </select>
+    </div>
+  </div>
+  </br>
+  </br>
+  <div class="submit-group">
+    <a href ng-click="closeThisDialog(phone)" class="buy-button buy-button-mid green-button wrap">
+      Select
+    </a>
+  </div>
+</div>

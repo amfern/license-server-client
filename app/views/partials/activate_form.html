@@ -1,17 +1,19 @@
 <a ui-sref="root.authorized.personaIndex" class="close">&times</a>
 <form class="form horizontal-form">
-  <div class="title">Details</div>
-  <div class="form-group">
-    <label for="phone" class="label">Phone</label>
-    <div class="control">
-      <input id="phone" type="text" onClick="this.select();" placeholder="__-___-___" class="form-control"/>
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="email" class="label">E-mail</label>
-    <div class="control">
-      <input id="email" type="email" onClick="this.select();" class="form-control"/>
-      <div class="help-block">We'll send your activation code to this email</div>
+  <br>
+  <br>
+  <div class="inner-form wrap title-text" ng-show="personaId == 'work'">
+    <img src="images/phone_large.png" class="inner-form-image"/>
+    <div class="title">Dedicate a phone line?</div>
+    You can dedicate a seperate phone line to this persona for just 
+    <strong>{{ lineCost | currency}}/month</strong>
+    <div class="submit-group">
+      <a href ng-click="openAddLineDialog()" ng-hide="phone" class="buy-button buy-button-mid green-button wrap">
+        Add line
+      </a>
+      <a href ng-click="removeLine()" ng-show="phone" class="buy-button buy-button-mid green-button wrap">
+        Remove line
+      </a>
     </div>
   </div>
   <div class="title">Payment</div>
@@ -27,9 +29,10 @@
   </div>
   <div class="help-block">You will be billed only when you activate your persona on the device</div>
   <div class="submit-group">
-    <a ng-click="purchase()" href class="buy-button buy-button-lg">Purchase</a>
+    <a ng-hide="isPersonaPurshased ? phone : true" class="buy-button buy-button-lg pending-button">Purchase</a>
+    <a ng-show="isPersonaPurshased ? phone : true" ng-click="purchase()" href class="buy-button buy-button-lg">Purchase</a>
     <span class="buy-button transperant">
-      $3.99
+      {{ totalPayment | currency }}
       <small>&nbsp;/month</small>
     </span>
   </div>

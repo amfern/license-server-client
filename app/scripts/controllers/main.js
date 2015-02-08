@@ -49,13 +49,15 @@ angular.module('personaMarketApp')
                 });
         };
 
-        $scope.addLine = function(persona) {
+        // $scope.addLine = function(persona) {
             /*jshint camelcase: false */
-            $http.put('/api/v1/users/user/licenses/' + persona.id, {license: { add_line: true }})
-                .then(function(resp) {
-                    angular.extend(persona, resp.data.license);
-                });
-        };
+
+            ////////// change it to modal
+            // $http.put('/api/v1/users/user/licenses/' + persona.id, {license: { add_line: true }})
+            //     .then(function(resp) {
+            //         angular.extend(persona, resp.data.license);
+            //     });
+        // };
 
         $scope.openReadMore = function(persona) {
             $scope.openReadMoreDialog(persona.imgSrc, persona.title, persona.fullDescription);

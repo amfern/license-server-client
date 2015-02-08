@@ -42,7 +42,7 @@ angular
                 url: '^/personas',
                 resolve: {
                     licenses: function($http) {
-                        return $http.get('/api/v1/users/user/licenses');
+                        return $http.get('/api/v1/users/user/licenses.json');
                     }
                 }
             })
@@ -50,21 +50,30 @@ angular
                 abstract: true,
                 templateUrl: '/views/personas/show.html',
                 controller: 'PersonaCtrl',
-                url: '^/personas/:id'
+                url: '^/personas/:id',
+                resolve: {
+                    licenses: function($http) {
+                        return $http.get('/api/v1/users/user/licenses.json');
+                    }
+                }
             })
             .state('root.authorized.personaShow.activateForm', {
                 templateUrl: '/views/partials/activate_form.html',
                 url: '^/personas/:id/activate'
             })
-            .state('root.authorized.personaShow.activateFinish', {
-                templateUrl: '/views/partials/activate_finish.html',
+            .state('root.authorized.personaShow.activateFinishPersona', {
+                templateUrl: '/views/partials/activate_finish_persona.html',
+                url: '^/personas/:id/finish'
+            })
+            .state('root.authorized.personaShow.activateFinishLine', {
+                templateUrl: '/views/partials/activate_finish_line.html',
                 url: '^/personas/:id/finish'
             })
             .state('root.authorized.personaDestroyAll', {
                 url: '^/personas/destroy_all',
                 resolve: {
                     destroyAllLicenses: function($http, $auth, $state) {
-                        return $http.delete('api/v1/users/user/licenses/destroy_all', { headers: $auth.retrieveData('auth_headers') })
+                        return $http.delete('api/v1/users/user/licenses/destroy_all.json', { headers: $auth.retrieveData('auth_headers') })
                             .then(function() {
                                 $state.go('root.authorized.personaIndex');
                             });
@@ -99,11 +108,6 @@ angular
             .state('root.unauthorized.sessionRegistration', {
                 templateUrl: '/views/sessions/sign_up.html',
                 controller: 'SignUpCtrl',
-                url: '^/sign_up',
-                resolve: {
-                    phones: function($http) {
-                        return $http.get('/api/v1/phones');
-                    }
-                }
+                url: '^/sign_up'
             });
     });
