@@ -11,5 +11,6 @@
 angular
     .module('personaMarketApp', [
         'ui.router',
-        'ng-token-auth'
+        'ng-token-auth',
+        'ngDialog'
     ]);

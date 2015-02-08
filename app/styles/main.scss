@@ -634,10 +634,26 @@ ul.personas  > li,
 
 
 
-/* modal
+/* dialog
 ---------------------------------- */
-.cellrox-modal {
-  display: none;
+.ngdialog.ngdialog-theme-default {
+
+  .ngdialog-content {
+    background-color: $gray-color;
+  }
+
+  .ngdialog-close:before {
+    color: #BEBEBE;
+    font-size: 48px;
+    font-weight: bold;
+    top: 3px;
+    right: 3px;
+    font-family: Helmet,Freesans,sans-serif;
+  }
+
+  .ngdialog-content {
+    width: 640px
+  }
 
   .persona-image {
     float: left;
@@ -647,26 +663,8 @@ ul.personas  > li,
   .title {
     padding-top: 0;
   }
-
-  .close {
-    margin: 0;
-  }
 }
 
-.avgrund-popin {
-  background-color: $gray-color;
+.clear-fix {
+  clear: both;
 }
-
-.avgrund-popin {
-  .cellrox-modal {
-    display: block;
-  }
-}
-
-// body.avgrund-active {
-//   -webkit-transform: scale(1);
-//   -moz-transform: scale(1);
-//   -ms-transform: scale(1);
-//   -o-transform: scale(1);
-//   transform: scale(1);
-// }

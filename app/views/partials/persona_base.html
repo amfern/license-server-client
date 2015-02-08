@@ -1,10 +1,10 @@
-<img ng-src="/images/{{personaId}}_persona.png" class="persona-image"/>
+<img ng-src="{{persona.imgSrc}}" class="persona-image"/>
 <div ng-show="personaId == 'work'">
-  <a ng-show="userPersonas[personaId].add_line" ng-click="" class="action-button-line">
+  <a ng-show="persona.add_line" ng-click="" class="action-button-line">
     Line dedicated
     <img src="images/phone.png"/>
   </a>
-  <a href ng-hide="userPersonas[personaId].add_line" ng-click="addLine(userPersonas[personaId])" class="action-button-line">
+  <a href ng-hide="persona.add_line" ng-click="addLine(persona)" class="action-button-line">
     Dedicate a line
     <img src="images/phone.png"/>
   </a>
@@ -13,5 +13,5 @@
 <div class="text">
   {{persona.description}}
   &nbsp;&nbsp;
-  <a href="javascript: void(0)">Read more</a>
+  <a href ng-click="openReadMore(persona)">Read more</a>
 </div>
