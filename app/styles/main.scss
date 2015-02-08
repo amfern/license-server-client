@@ -6,6 +6,7 @@ $gray-color: #F8F8F8;
 $gray-color2: #D2D2D2;
 $dark-gray-color: #C6C6C6;
 $light-gray-color: #606079;
+$light-gray-color2: #979797;
 $black-color: #4A4A4A;
 $white-color: #fff;
 $orange-color: #FF6600;
@@ -279,6 +280,17 @@ ul.personas  > li,
   }
 }
 
+.btn-link {
+  &, &:hover {
+    text-decoration: none;
+    color: $orange-color;
+  }
+}
+
+.btn-link-nav:hover {
+  text-decoration: underline;
+}
+
 
 .buy-button {
   color: #000;
@@ -311,7 +323,8 @@ ul.personas  > li,
   }
 
   &.pending-button {
-    background-color: $orange-color;
+    background-color: $dark-gray-color;
+    color: $light-gray-color;
   }
 
   &.transperant {
@@ -604,12 +617,18 @@ ul.personas  > li,
 
   .card-deck-placeholder {
     position: absolute;
-top: -150px;
-right: -195px;
+    top: -150px;
+    right: -195px;
   }
 
   .login-form {
     position: relative;
+  }
+
+  .help-block {
+    margin-top: 15px;
+    font-weight: bold;
+    color: $light-gray-color2;
   }
 }
 

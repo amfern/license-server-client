@@ -3,7 +3,7 @@
     <img src="/images/card_deck.png"/>
   </div>
   <form class="form login-form">
-    <div class="login-form-header">Log in</div>
+    <div class="login-form-header">Log-in</div>
     <div class="login-form-body">
       <div class="form-group">
         <label for="email" class="label">Email</label>
@@ -19,9 +19,12 @@
       </div>
       <div class="form-group">
         <br/>
-        <input type="submit" ng-click="submit(email, password)" value="Log in" class="gray-button gray-button-lg"/>
-        <a ui-sref="root.unauthorized.sessionRegistration">Sign up</a>
+        <input type="submit" ng-click="submit(email, password)" value="Log-in" class="gray-button gray-button-lg"/>
       </div>
     </div>
   </form>
+  <div class="help-block">
+    Don't have an account?
+    <a ui-sref="root.unauthorized.sessionRegistration" class="btn-link btn-link-nav">Sign-up here</a>
+  </div>
 </div>

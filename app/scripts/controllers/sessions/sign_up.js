@@ -11,9 +11,9 @@ angular.module('personaMarketApp')
     .controller('SignUpCtrl', function($scope, $auth, $state, phones) {
 
         $scope.phones = phones.data.phones;
-        $scope.userForm = {
-            phone: $scope.phones[0].real
-        };
+        // $scope.userForm = {
+        //     phone: $scope.phones[0].real
+        // };
 
         $scope.submit = function() {
             $auth.submitRegistration($scope.userForm)

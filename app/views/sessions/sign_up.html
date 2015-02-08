@@ -3,7 +3,7 @@
     <img src="/images/card_deck.png"/>
   </div>
   <form class="form login-form">
-    <div class="login-form-header">Sign up</div>
+    <div class="login-form-header">Sign-up</div>
     <div class="login-form-body">
       <div class="form-group">
         <label for="email" class="label">Email</label>
@@ -18,22 +18,25 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="register-password-confirmation" class="label">Password Confirmation</label>
+        <label for="register-password-confirmation" class="label">Confirm password</label>
         <div class="control">
-          <input id="register-password-confirmation" type="password" ng-model="userForm.passwordConfirmation" class="form-control"/>
+          <input id="register-password-confirmation" type="password" ng-model="userForm.password_confirmation" class="form-control"/>
         </div>
       </div>
-      <div class="form-group">
+<!--       <div class="form-group">
         <label for="register-phone" class="label">Phone</label>
         <div class="control">
           <select ng-options="phone.real as phone.real for phone in phones" ng-model="userForm.phone" class="form-control">
         </div>
-      </div>
+      </div> -->
       <div class="form-group">
         <br/>
-        <input type="submit" ng-click="submit(email, password, passwordConfirmation)" value="Sign up" class="gray-button gray-button-lg"/>
-        <a ui-sref="root.unauthorized.sessionNew">Sign in</a>
+        <input type="submit" ng-click="submit()" value="Sign-up" class="gray-button gray-button-lg"/>
       </div>
     </div>
   </form>
+  <div class="help-block">
+    Already have an account?
+    <a ui-sref="root.unauthorized.sessionNew" class="btn-link btn-link-nav">Log-in here</a>
+  </div>
 </div>
