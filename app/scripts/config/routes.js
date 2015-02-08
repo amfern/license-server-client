@@ -60,6 +60,17 @@ angular
                 templateUrl: '/views/partials/activate_finish.html',
                 url: '^/personas/:id/finish'
             })
+            .state('root.authorized.personaDestroyAll', {
+                url: '^/personas/destroy_all',
+                resolve: {
+                    destroyAllLicenses: function($http, $auth, $state) {
+                        return $http.delete('api/v1/users/user/licenses/destroy_all', { headers: $auth.retrieveData('auth_headers') })
+                            .then(function() {
+                                $state.go('root.authorized.personaIndex');
+                            });
+                    }
+                }
+            })
             .state('root.unauthorized', {
                 abstract: true,
                 templateUrl: '/views/partials/unauthorized.html',
