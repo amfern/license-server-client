@@ -19,21 +19,21 @@ angular.module('personaMarketApp')
             },
             hidden: {
                 name: 'Hidden',
-                title: 'Work persona',
+                title: 'Hidden persona',
                 description: 'Keep your private activities hidden from others.',
                 fullDescription: 'Keep your private activities hidden from others. Hidden Persona allow you to create a complete new instance for you mobile device that could not be viewed, inspected and/or visible to others. Beyond data encryption, accessing the hidden Persona requires access code that will only be known to you. You could leverage the hidden Persona for everything personal that you would like to make sure kept personal.',
                 imgSrc: '/images/hidden_persona.png'
             },
             wallet: {
                 name: 'Wallet',
-                title: 'Work persona',
+                title: 'Wallet persona',
                 description: 'Secure your shopping transactions and financial activities.',
                 fullDescription: 'Secure your shopping transactions and financial activities. Wallet Persona provides a safe and secure environment for all of your financial and payment apps. This service ensure that the wallet persona kept malware free by disabling few securing different functionality on your device that may expose you to risk otherwise.',
                 imgSrc: '/images/wallet_persona.png'
             },
             dod: {
                 name: 'DoD',
-                title: 'Work persona',
+                title: 'DoD persona',
                 description: 'Military grade secured mobile environment.',
                 fullDescription: 'Military grade secured mobile environment. DoD persona is tailored to the required capabilities of military and government related usages. This customized persona removes all the basic functionality that may pose risk and disable device functionality such as regular phone dialer, unencrypted messaging, etc.',
                 imgSrc: '/images/dod_persona.png'
