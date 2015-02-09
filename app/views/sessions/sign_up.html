@@ -8,7 +8,7 @@
       <div class="form-group">
         <label for="email" class="label">Email</label>
         <div class="control">
-          <input id="login-email" type="email" ng-model="userForm.email" class="form-control"/>
+          <input id="login-email" type="text" ng-model="userForm.email" class="form-control"/>
         </div>
       </div>
       <div class="form-group">
@@ -23,8 +23,10 @@
           <input id="register-password-confirmation" type="password" ng-model="userForm.password_confirmation" class="form-control"/>
         </div>
       </div>
+      <br/>
+      <div ng-include="'/views/partials/feedback.html'"></div>
+      <br/>
       <div class="form-group">
-        <br/>
         <input type="submit" ng-click="submit()" value="Sign-up" class="gray-button gray-button-lg"/>
       </div>
     </div>

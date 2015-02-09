@@ -21,7 +21,7 @@ angular
         $stateProvider
             .state('root', {
                 abstract: true,
-                template: '<ui-view/>'
+                templateUrl: '/views/root.html'
             })
             .state('root.authorized', {
                 abstract: true,

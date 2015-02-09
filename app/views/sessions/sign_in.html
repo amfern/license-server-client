@@ -17,8 +17,10 @@
           <input id="login-password" type="password" ng-model="password" class="form-control"/>
         </div>
       </div>
+      <br/>
+      <div ng-include="'/views/partials/feedback.html'"></div>
+      <br/>
       <div class="form-group">
-        <br/>
         <input type="submit" ng-click="submit(email, password)" value="Log-in" class="gray-button gray-button-lg"/>
       </div>
     </div>
